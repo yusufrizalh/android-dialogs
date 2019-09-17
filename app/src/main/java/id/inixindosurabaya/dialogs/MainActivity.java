@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Arrays;
@@ -14,7 +15,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     // 1. inisialisasi komponen
-    Button btn_dialog_alert, btn_dialog_listview, btn_dialog_radio;
+    Button btn_dialog_alert, btn_dialog_listview, btn_dialog_radio, btn_dialog_checkbox;
+    TextView txt_display_film;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         btn_dialog_alert = findViewById(R.id.btn_dialog_alert);
         btn_dialog_listview = findViewById(R.id.btn_dialog_listview);
         btn_dialog_radio = findViewById(R.id.btn_dialog_radio);
+        btn_dialog_checkbox = findViewById(R.id.btn_dialog_checkbox);
+        txt_display_film = findViewById(R.id.txt_display_film);
 
         // 3. event handling
 
@@ -128,6 +132,52 @@ public class MainActivity extends AppCompatActivity {
                                                 "Your gender is: "
                                                         + genderLists.get(checkedItem[0]),
                                                 Toast.LENGTH_SHORT).show();
+                                    }
+                                })
+                        .setCancelable(false)
+                        .show();
+            }
+        });
+
+        // event handling button dialog checkbox
+        btn_dialog_checkbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // memanggil array films
+                String[] films = getResources()
+                        .getStringArray(R.array.films);
+
+                // status checkbox tidak ada yg dicentang
+                final boolean[] checkedItem = {
+                        false, false, false, false, false
+                };
+
+                // membuat array films menjadi list
+                final List<String> filmLists = Arrays.asList(films);
+
+                // membuat dialog kombinasi dengan checkbox
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("Film List")
+                        .setMultiChoiceItems(films, checkedItem,
+                                new DialogInterface.OnMultiChoiceClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+
+                                    }
+                                })
+                        .setPositiveButton("YES",
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        int x = 0;
+                                        while (x < checkedItem.length) {
+                                            boolean checked = checkedItem[x];
+                                            if (checked) {
+                                                txt_display_film.setText(txt_display_film.getText() +
+                                                        filmLists.get(x) + "\n");
+                                            }
+                                            x++;
+                                        }
                                     }
                                 })
                         .setCancelable(false)

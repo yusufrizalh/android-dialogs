@@ -24,4 +24,12 @@
         <item>Male</item>
         <item>Female</item>
     </string-array>
+
+    <string-array name="films">
+        <item>The Avengers: End Game</item>
+        <item>Spider-Man: Far From Home</item>
+        <item>Ant-Man and The Wasp</item>
+        <item>The Dark Knight</item>
+        <item>Joker</item>
+    </string-array>
 </resources>
