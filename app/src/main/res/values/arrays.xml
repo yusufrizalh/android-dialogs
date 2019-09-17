@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="peoples">
+        <item>Jennifer</item>
+        <item>Gonzales</item>
+        <item>Sanchez</item>
+        <item>Charles</item>
+        <item>Diana</item>
+        <item>Alberto</item>
+        <item>Fernandez</item>
+        <item>Moreno</item>
+        <item>Diego</item>
+        <item>Armando</item>
+        <item>Escobar</item>
+        <item>Maria</item>
+        <item>Mariana</item>
+        <item>Suarez</item>
+        <item>Forlan</item>
+        <item>Pablo</item>
+        <item>Paulo</item>
+    </string-array>
+
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+</resources>
